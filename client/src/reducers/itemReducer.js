@@ -13,16 +13,23 @@
   Move the initialState from shopping-list.js to here*/
 
 import uuid from "uuid";
-import { GET_ITEMS, ADD_ITEM, DELETE_ITEM } from "./../actions/types";
+import {
+  GET_ITEMS,
+  ADD_ITEM,
+  DELETE_ITEM,
+  ITEMS_LOADING
+} from "./../actions/types";
 
 const initialState = {
   items: [
-    { id: uuid(), name: "Eggs" },
-    { id: uuid(), name: "Milk" },
-    { id: uuid(), name: "Steak" },
-    { id: uuid(), name: "Water" }
-  ]
-};
+    // { id: uuid(), name: "Eggs" },
+    // { id: uuid(), name: "Milk" },
+    // { id: uuid(), name: "Steak" },
+    // { id: uuid(), name: "Water" } - REMOVE static data from Reducer
+  ], // Leave empty array
+  loading: false //for handling lag time when asynchronously requesting data
+}; // set to true while fetching and false when returned
+// Create one more type - ITEMS_LOADING
 
 export default function(state = initialState, action) {
   switch (action.type) {
@@ -43,6 +50,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         items: [action.payload, ...state.items]
+      };
+    case ITEMS_LOADING:
+      return {
+        ...state,
+        loading: true
       };
     default:
       return state;

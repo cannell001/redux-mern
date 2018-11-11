@@ -1,4 +1,4 @@
-import { GET_ITEMS, ADD_ITEM, DELETE_ITEM } from "./types";
+import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING } from "./types";
 
 export const getItems = () => {
   return {
@@ -23,3 +23,7 @@ export const addItem = item => {
     payload: item
   };
 };
+
+export const setItemsLoading = () => {
+  return { type: ITEMS_LOADING };
+}; //dispatch action ITEMS_LOADING - sets loading from false to true
