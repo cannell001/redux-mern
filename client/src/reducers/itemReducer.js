@@ -18,6 +18,11 @@ export default function(state = initialState, action) {
         items: action.payload,
         loading: false
       };
+    case ADD_ITEM:
+      return {
+        ...state,
+        items: [action.payload, ...state.items]
+      };
     case DELETE_ITEM:
       return {
         ...state,
@@ -27,11 +32,7 @@ export default function(state = initialState, action) {
         //change id to action.payload sent with dispatched action
         //modify onClick in shoppingList
       };
-    case ADD_ITEM:
-      return {
-        ...state,
-        items: [action.payload, ...state.items]
-      };
+
     case ITEMS_LOADING:
       return {
         ...state,
