@@ -1,29 +1,27 @@
+import axios from "axios";
 import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING } from "./types";
 
-export const getItems = () => {
-  return {
-    type: GET_ITEMS
-  };
+export const getItems = () => dispatch => {
+  dispatch(setItemsLoading()); // set loading to true
+  axios.get("/api/items").then(res =>
+    dispatch({
+      type: GET_ITEMS,
+      payload: res.data
+    })
+  );
 };
-
-/* call getItems() from within component (shopping-list)
-   Reducer checks the type and acquires the state */
 export const deleteItem = id => {
   return {
     type: DELETE_ITEM,
     payload: id
   };
-}; //Return this to reducer where we check the type - send a payload along with this dispatch
-//since reducer needs to kno the id
-//now add a case for DELETE_ITEM in reducer
-
+};
 export const addItem = item => {
   return {
     type: ADD_ITEM,
     payload: item
   };
 };
-
 export const setItemsLoading = () => {
   return { type: ITEMS_LOADING };
 }; //dispatch action ITEMS_LOADING - sets loading from false to true
