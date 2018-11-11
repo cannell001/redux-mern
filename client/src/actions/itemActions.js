@@ -16,3 +16,10 @@ export const deleteItem = id => {
 }; //Return this to reducer where we check the type - send a payload along with this dispatch
 //since reducer needs to kno the id
 //now add a case for DELETE_ITEM in reducer
+
+export const addItem = item => {
+  return {
+    type: ADD_ITEM,
+    payload: item
+  };
+};

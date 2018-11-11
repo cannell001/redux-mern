@@ -10,7 +10,8 @@ import {
   Input
 } from "reactstrap";
 import { connect } from "react-redux";
-//import { addItem } from "../actions/itemActions";
+import { addItem } from "../actions/itemActions";
+import uuid from "uuid";
 
 class ItemModal extends Component {
   state = {
@@ -32,7 +33,8 @@ class ItemModal extends Component {
     e.preventDefault();
 
     const newItem = {
-      name: this.state.name
+      name: this.state.name,
+      id: uuid()
     };
 
     // Add item via addItem action
@@ -83,6 +85,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(
-  mapStateToProps
-  //{ addItem }
+  mapStateToProps,
+  { addItem }
 )(ItemModal);

@@ -39,6 +39,11 @@ export default function(state = initialState, action) {
         //change id to action.payload sent with dispatched action
         //modify onClick in shoppingList
       };
+    case ADD_ITEM:
+      return {
+        ...state,
+        items: [action.payload, ...state.items]
+      };
     default:
       return state;
   }
