@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AppNavbar from "./components/AppNavbar";
 import ShoppingList from "./components/ShoppingList";
-import ItemModal from "./components/ItemModal";
+//import ItemModal from "./components/ItemModal";
 import { Container } from "reactstrap";
 
 import "bootstrap/dist/css/bootstrap.min.css";
