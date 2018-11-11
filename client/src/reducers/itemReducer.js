@@ -30,6 +30,15 @@ export default function(state = initialState, action) {
       return {
         ...state
       };
+    case DELETE_ITEM:
+      return {
+        ...state,
+        //items: state.items.filter(item => item.id !== id)
+        //copied from shoppin-list
+        items: state.items.filter(item => item.id !== action.payload)
+        //change id to action.payload sent with dispatched action
+        //modify onClick in shoppingList
+      };
     default:
       return state;
   }
