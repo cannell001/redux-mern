@@ -47,7 +47,7 @@ class ShoppingList extends Component {
         <ListGroup>
           <TransitionGroup className="shopping-list">
             {items.map(({ id, name }) => (
-              //<CSSTransition key={id} timeout={500} className="fade">
+              // <CSSTransition key={id} timeout={500} className="fade">
               <ListGroupItem>
                 <Button
                   className="remove-btn"

@@ -13,17 +13,15 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Provider store={store}>
-          //share state throughout components
+      <Provider store={store}>
+        <div className="App">
+          <AppNavbar />
           <Container>
-            <AppNavbar />
-
             {/*<ItemModal />*/}
             <ShoppingList />
           </Container>
-        </Provider>
-      </div>
+        </div>
+      </Provider>
     );
   }
 }
